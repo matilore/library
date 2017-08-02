@@ -1,30 +1,40 @@
 import React from 'react'
+import styled from 'styled-components'
 
-import {Navbar, BooksList} from 'components'
+import { BooksContainer } from 'containers'
+import { Navbar, BooksList, NewBook } from 'components' 
+
 
 class MainContainer extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.state = {currentComponent: BooksList}
+  }
 
+  selectComponent = (component)=> {
+    this.setState({currentComponent: component});
+  }
 
 
   render () {
-
-    // let component = this.steps[this.props.counter.value]
-    // return (
-    //   <div>
-    //     {React.createElement(component)}
-    //     { component != Landing ? < Footer /> : null }
-    // </div>
-    // )
-
-
+    
     return (
       <div>
-          <Navbar />
-          <BooksList />
+          <Navbar selectComponent={this.selectComponent}/>
+          <Wrapper>
+             <this.state.currentComponent /> 
+             {/* {React.createElement(this.state.currentComponent)}  */}
+
+          </Wrapper>
       </div>
     )
   }
 }
 
 export default MainContainer
+
+
+const Wrapper = styled.div`
+  height: 85vh;
+`

@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 
+import {BooksList, NewBook } from 'components'
+
 class Navbar extends Component {
   render() {
+    console.log(this.props)
     return (
       <Wrapper>
         <img src='images/logo.png' style={{height: '70%', margin: '20px'}} />
         <ButtonsWrapper>
-          <Button onClick={()=> console.log('hello')}>Book List</Button>
+           <Button onClick={this.props.selectComponent.bind(null, BooksList)}>Book List</Button> 
           <Button>Category List</Button>
-          <Button>Create Book</Button>
+           <Button onClick={this.props.selectComponent.bind(null, NewBook)}>Add Book</Button> 
         </ButtonsWrapper>
       </Wrapper>
     );
@@ -39,7 +42,7 @@ const Button = styled.button`
 
 const ButtonsWrapper = styled.div`
 display: flex;
-flex-basis: 40%;
+flex-basis: 25%;
 justify-content: space-around;
 align-items: center;
 margin-right: 5%;
