@@ -63,22 +63,22 @@ class EditBook extends React.Component {
         </Header>
         <form onSubmit={this.editBook} className="form-group">
           <label htmlFor="">Title</label><br />
-          <input type="text" ref={(input) => this.title = input} className="form-control" />
+          <input type="text" ref={(input) => this.title = input} id="bookField" className="form-control" />
           <label htmlFor="">Author</label><br />
-          <input type="text" ref={(input) => this.author = input} className="form-control" />
+          <input type="text" ref={(input) => this.author = input} id="bookField" className="form-control" />
           <label htmlFor="">Year</label><br />
-          <input type="text" ref={(input) => this.year = input} className="form-control" />
+          <input type="text" ref={(input) => this.year = input} id="bookField" className="form-control" />
           <label htmlFor="">Cover</label><br />
-          <input type="text" ref={(input) => this.imageLink = input} className="form-control" />
+          <input type="text" ref={(input) => this.imageLink = input} id="bookField" className="form-control" />
           <label htmlFor="">Genre</label><br />
-          <select name='genre' ref={(input) => this.genre = input} className="form-control" id="">
+          <select name='genre' ref={(input) => this.genre = input} id="bookField" className="form-control">
             {
               this.props.genres.map((genre) => {
                 return <option key={genre} value={genre}>{genre}</option>
               })
             }
           </select><br />
-          <button type="submit" className="form-control">Add Book</button>
+          <button type="submit" id="bookField" className="form-control">Add Book</button>
         </form>
       </Wrapper>
 

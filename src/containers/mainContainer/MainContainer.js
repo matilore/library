@@ -43,6 +43,12 @@ class MainContainer extends React.Component {
     this.setState({books: booksList});
   }
 
+  saveNewGenre = (newGenre) => {
+    let genreList = this.state.genres;
+    genreList.push(newGenre);
+    this.setState({books: genreList});
+  }
+
   saveEditedBook = (editedBook, index) => {
     let booksList = this.state.books;
     booksList[index] = editedBook;
@@ -63,7 +69,6 @@ class MainContainer extends React.Component {
 
   selectComponent = (component)=> {
     this.setState({currentComponent: component});
-    
   }
 
 
@@ -72,7 +77,7 @@ class MainContainer extends React.Component {
       <div>
           <Navbar selectComponent={this.selectComponent}/>
           <Wrapper>
-             <this.state.currentComponent {...this.state} removeBook={this.removeBook} removeGenre={this.removeGenre} saveNewBook={this.saveNewBook} saveEditedBook={this.saveEditedBook} editBook={this.editBook} updateGenre={this.updateGenre} selectComponent={this.selectComponent}/> 
+             <this.state.currentComponent {...this.state} removeBook={this.removeBook} removeGenre={this.removeGenre} saveNewBook={this.saveNewBook} saveEditedBook={this.saveEditedBook} editBook={this.editBook} updateGenre={this.updateGenre} selectComponent={this.selectComponent} saveNewGenre={this.saveNewGenre}/> 
           </Wrapper>
       </div>
     )
