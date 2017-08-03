@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import styled from 'styled-components'
 
-import { NewBook } from 'components';
+import { BooksList } from 'components';
 
 
 class EditBook extends React.Component {
@@ -42,6 +42,7 @@ class EditBook extends React.Component {
       genre: this.genre.value
     }
     this.props.saveEditedBook(editedBook, index);
+    this.props.selectComponent(BooksList)
   }
 
 

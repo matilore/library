@@ -49,6 +49,12 @@ class MainContainer extends React.Component {
     this.setState({books: booksList});
   }
 
+  updateGenre = (index, genreValue, event) => {
+    let genres = this.state.genres;
+    genres[index] = genreValue;
+    this.setState({genres: genres})
+  }
+
   editBook = (index) => {
     let component = HOC(EditBook, index);
     this.setState({currentComponent: component });
@@ -66,7 +72,7 @@ class MainContainer extends React.Component {
       <div>
           <Navbar selectComponent={this.selectComponent}/>
           <Wrapper>
-             <this.state.currentComponent {...this.state} removeBook={this.removeBook} removeGenre={this.removeGenre} saveNewBook={this.saveNewBook} saveEditedBook={this.saveEditedBook} editBook={this.editBook} /> 
+             <this.state.currentComponent {...this.state} removeBook={this.removeBook} removeGenre={this.removeGenre} saveNewBook={this.saveNewBook} saveEditedBook={this.saveEditedBook} editBook={this.editBook} updateGenre={this.updateGenre} selectComponent={this.selectComponent}/> 
           </Wrapper>
       </div>
     )
