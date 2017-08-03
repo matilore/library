@@ -7,7 +7,8 @@
     "link": "https://en.wikipedia.org/wiki/Things_Fall_Apart\n",
     "pages": 209,
     "title": "Things Fall Apart",
-    "year": 1958
+    "year": 1958,
+    "genre": "fantasy"
   },
   {
     "author": "Hans Christian Andersen",
@@ -17,7 +18,8 @@
     "link": "https://en.wikipedia.org/wiki/Fairy_Tales_Told_for_Children._First_Collection.\n",
     "pages": 784,
     "title": "Fairy tales",
-    "year": 1836
+    "year": 1836,
+    "genre": "fantasy"
   },
   {
     "author": "Dante Alighieri",
@@ -27,7 +29,8 @@
     "link": "https://en.wikipedia.org/wiki/Divine_Comedy\n",
     "pages": 928,
     "title": "The Divine Comedy",
-    "year": 1315
+    "year": 1315,
+    "genre": "fantasy"
   },
   {
     "author": "Virginia Woolf",
@@ -37,7 +40,8 @@
     "link": "https://en.wikipedia.org/wiki/To_the_Lighthouse\n",
     "pages": 209,
     "title": "To the Lighthouse",
-    "year": 1927
+    "year": 1927,
+    "genre": "fantasy"
   },
   {
     "author": "Marguerite Yourcenar",
@@ -47,6 +51,7 @@
     "link": "https://en.wikipedia.org/wiki/Memoirs_of_Hadrian\n",
     "pages": 408,
     "title": "Memoirs of Hadrian",
-    "year": 1951
+    "year": 1951,
+    "genre": "poetry"
   }
 ]

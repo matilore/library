@@ -1,43 +1,39 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import books from 'books.json';
+
+import _ from 'lodash';
+
 
 class BooksList extends Component {
 
-  removeBook = ()=>{
-    console.log(this)
-  }
-
 
   render() {
-    console.log(books)
     return (
       <div>
         <Header>
-        <h1>Book List</h1>
-      </Header>
-      <Wrapper>
-        {books.map((book, index) => {
-          return (
-            <Book key={index}>
-              <IconWrapper>
-              <Icon className="fa fa-times fa-2x" aria-hidden="true"></Icon>
-            </IconWrapper>
-            <h4>{book.title}</h4>
-            <ImageWrapper key={index}>
-            <img src={book.imageLink} style={imageStyle} key={index} />
-            </ImageWrapper>
-            <p>Author: {book.author}</p>
-            <p>Year: {book.year}</p>
-            <p>Pages: {book.pages}</p>
-            <IconWrapper>
-              <Icon className="fa fa-pencil-square-o fa-lg" aria-hidden="true"></Icon>
-            </IconWrapper>
-            </Book>
-          )
-        })}
-      </Wrapper>
+          <h1>Book List</h1>
+        </Header>
+        <Wrapper>
+          {this.props.books.map((book, index) => {
+            return (
+              <Book key={index}>
+                <IconWrapper>
+                  <Icon onClick={this.props.removeBook.bind(null, index)} className="fa fa-times fa-2x" aria-hidden="true"></Icon>
+                </IconWrapper>
+                <h4>{book.title}</h4>
+                <ImageWrapper key={index}>
+                  <img src={book.imageLink} style={imageStyle} key={index} />
+                </ImageWrapper>
+                <p>Author: {book.author}</p>
+                <p>Year: {book.year}</p>
+                <IconWrapper>
+                   <Icon onClick={this.props.editBook.bind(null, index)} className="fa fa-pencil-square-o fa-lg" aria-hidden="true"></Icon> 
+                </IconWrapper>
+              </Book>
+            )
+          })}
+        </Wrapper>
       </div>
     );
   }
@@ -45,11 +41,11 @@ class BooksList extends Component {
 
 export default BooksList;
 
-const imageStyle = { 
-  width: "100%", 
-  objectFit: 'cover', 
-  objectPosition: '50% 50%', 
-  height: '100%' 
+const imageStyle = {
+  width: "100%",
+  objectFit: 'cover',
+  objectPosition: '50% 50%',
+  height: '100%'
 }
 
 const Header = styled.div`
@@ -67,6 +63,7 @@ const ImageWrapper = styled.div`
 padding: 8%;
 box-sizing: border-box;
 height: 100%;
+min-height: 200px;  
 width: 100%;
 overflow: hidden;
 `

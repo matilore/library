@@ -1,3 +1,5 @@
 export Navbar from 'components/navbar/Navbar'
 export BooksList from 'components/booksList/BooksList'
 export NewBook from 'components/newBook/NewBook'
+export EditBook from 'components/editBook/EditBook'
+export GenreList from 'components/genreList/GenreList'
