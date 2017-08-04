@@ -1,29 +1,26 @@
-import React, { Component } from 'react';
-
-import styled from 'styled-components'
+import React, { Component } from 'react'
 
 import { BooksList } from 'components'
 
-class NewBook extends Component {
+import { Header } from './style'
 
+class NewBook extends Component {
   newBook = (event) => {
     event.preventDefault()
     let newBook = {
       title: this.title.value,
       author: this.author.value,
       year: this.year.value,
-      imageLink: this.imageLink.value || "https://edition-medali.tn/img/p/fr-default.jpg",
+      imageLink: this.imageLink.value || 'https://edition-medali.tn/img/p/fr-default.jpg',
       genre: this.genre.value
     }
-    this.props.saveNewBook(newBook);
-    this.props.selectComponent(BooksList);
-
+    this.props.saveNewItem(newBook, 'books')
+    this.props.selectComponent(BooksList)
   }
 
-  render() {
-    console.log(this.props)
+  render () {
     return (
-      <Wrapper>
+      <div>
         <Header>
           <h1>Add New Book</h1>
         </Header>
@@ -46,18 +43,10 @@ class NewBook extends Component {
           </select><br />
           <button type="submit" id="bookField" className="form-control">Add Book</button>
         </form>
-      </Wrapper>
+      </div>
 
-    );
+    )
   }
 }
 
-export default NewBook;
-
-
-const Wrapper = styled.div`
-`
-
-const Header = styled.div`
-  text-align: center;
-`
+export default NewBook

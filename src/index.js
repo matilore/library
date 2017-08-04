@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import Routes from './config/routes'
+import {MainContainer} from 'containers'
 
 import './index.scss'
 
 ReactDom.render(
-  <Routes />, document.getElementById('app')
+  <MainContainer />, document.getElementById('app')
 )

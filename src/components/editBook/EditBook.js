@@ -1,24 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import styled from 'styled-components'
+import { BooksList } from 'components'
 
-import { BooksList } from 'components';
+import { Header } from './style'
 
-
-class EditBook extends React.Component {
-
-  constructor() {
+class EditBook extends Component {
+  constructor () {
     super()
     this.state = { bookToEdit: undefined }
   }
 
-  componentDidMount() {
-    let bookToEdit = this.props.books[this.props.index];
+  componentDidMount () {
+    let bookToEdit = this.props.books[this.props.index]
     this.setState({ bookToEdit })
   }
 
   fillInputValues = () => {
-     if (this.state.bookToEdit != undefined) {
+    if (this.state.bookToEdit != undefined) {
       this.title.value = this.state.bookToEdit.title
       this.author.value = this.state.bookToEdit.author
       this.year.value = this.state.bookToEdit.year
@@ -27,37 +25,28 @@ class EditBook extends React.Component {
     }
   }
 
-
-  //INCLUDED METHOD IN THE COMPONENT BECAUSE EXTENDED
+  // INCLUDED METHOD IN THE COMPONENT BECAUSE EXTENDED
   editBook = (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
-    let index = this.props.index;
+    let index = this.props.index
 
     let editedBook = {
       title: this.title.value,
       author: this.author.value,
       year: this.year.value,
-      imageLink: this.imageLink.value || "https://edition-medali.tn/img/p/fr-default.jpg",
+      imageLink: this.imageLink.value || 'https://edition-medali.tn/img/p/fr-default.jpg',
       genre: this.genre.value
     }
-    this.props.saveEditedBook(editedBook, index);
+    this.props.updateItem(editedBook, index, 'books')
     this.props.selectComponent(BooksList)
   }
 
-
-
-
-
-
-
-
-  render() {
-   
-    this.fillInputValues();
+  render () {
+    this.fillInputValues()
 
     return (
-      <Wrapper>
+      <div>
         <Header>
           <h1>Edit Book</h1>
         </Header>
@@ -80,18 +69,10 @@ class EditBook extends React.Component {
           </select><br />
           <button type="submit" id="bookField" className="form-control">Add Book</button>
         </form>
-      </Wrapper>
+      </div>
 
-    );
+    )
   }
 }
 
-export default EditBook;
-
-
-const Wrapper = styled.div`
-`
-
-const Header = styled.div`
-  text-align: center;
-`
+export default EditBook
