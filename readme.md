@@ -1,12 +1,16 @@
 # Virtual Library
 
 ## Install
-`$ git clone https://github.com/matilore/library.git`
-`$ cd library`
-`$ npm install`
+```bash
+$ git clone https://github.com/matilore/library.git
+$ cd library
+$ npm install
+```
 
 ## Usage
-`$ npm start`
+```bash
+$ npm start
+```
 
 ## Build with
 - React v15.6.1
