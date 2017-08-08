@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import { BooksList } from 'components'
+import PropTypes from 'prop-types'
 
 import { Header } from './style'
 
@@ -16,7 +17,7 @@ class EditBook extends Component {
   }
 
   fillInputValues = () => {
-    if (this.state.bookToEdit != undefined) {
+    if (this.state.bookToEdit !== undefined) {
       this.title.value = this.state.bookToEdit.title
       this.author.value = this.state.bookToEdit.author
       this.year.value = this.state.bookToEdit.year
@@ -25,12 +26,9 @@ class EditBook extends Component {
     }
   }
 
-  // INCLUDED METHOD IN THE COMPONENT BECAUSE EXTENDED
   editBook = (event) => {
     event.preventDefault()
-
     let index = this.props.index
-
     let editedBook = {
       title: this.title.value,
       author: this.author.value,
@@ -52,15 +50,15 @@ class EditBook extends Component {
         </Header>
         <form onSubmit={this.editBook} className="form-group">
           <label htmlFor="">Title</label><br />
-          <input type="text" ref={(input) => this.title = input} id="bookField" className="form-control" />
+          <input type="text" ref={(input) => { this.title = input }} id="bookField" className="form-control" />
           <label htmlFor="">Author</label><br />
-          <input type="text" ref={(input) => this.author = input} id="bookField" className="form-control" />
+          <input type="text" ref={(input) => { this.author = input }} id="bookField" className="form-control" />
           <label htmlFor="">Year</label><br />
-          <input type="text" ref={(input) => this.year = input} id="bookField" className="form-control" />
+          <input type="text" ref={(input) => { this.year = input }} id="bookField" className="form-control" />
           <label htmlFor="">Cover</label><br />
-          <input type="text" ref={(input) => this.imageLink = input} id="bookField" className="form-control" />
+          <input type="text" ref={(input) => { this.imageLink = input }} id="bookField" className="form-control" />
           <label htmlFor="">Genre</label><br />
-          <select name='genre' ref={(input) => this.genre = input} id="bookField" className="form-control">
+          <select name='genre' ref={(input) => { this.genre = input }} id="bookField" className="form-control">
             {
               this.props.genres.map((genre) => {
                 return <option key={genre} value={genre}>{genre}</option>
@@ -76,3 +74,11 @@ class EditBook extends Component {
 }
 
 export default EditBook
+
+EditBook.propTypes = {
+  books: PropTypes.array,
+  genres: PropTypes.array,
+  index: PropTypes.number,
+  updateItem: PropTypes.func,
+  selectComponent: PropTypes.func
+}

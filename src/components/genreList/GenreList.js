@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-
+import PropTypes from 'prop-types'
 import { DynamicElement } from 'components'
-import { Icon, NewGenreWrapper } from './style'
+import { NewGenreWrapper } from './style'
 
 class GenreList extends Component {
   constructor () {
@@ -37,7 +37,7 @@ class GenreList extends Component {
             ) : (
               <div>
                 <h2>Add a new genre</h2>
-                <input autoFocus className="form-control" ref={(input) => this.newGenre = input} />
+                <input autoFocus className="form-control" ref={(input) => { this.newGenre = input }} />
                 <button onClick={this.newGenre} className="form-control">Add</button>
               </div>
             )}
@@ -49,3 +49,10 @@ class GenreList extends Component {
 }
 
 export default GenreList
+
+GenreList.propTypes = {
+  genres: PropTypes.array,
+  saveNewItem: PropTypes.func,
+  removeItem: PropTypes.func,
+  updateItem: PropTypes.func
+}

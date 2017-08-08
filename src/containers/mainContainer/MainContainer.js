@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 
-import { Navbar, BooksList, EditBook, HOC } from 'components'
+import { Navbar, BooksList, EditBook } from 'components'
 
-// virtual source of data
+// source of data
 import books from 'data/books.json'
 import genres from 'data/genres'
 
@@ -15,7 +14,7 @@ class MainContainer extends Component {
 
   removeItem = (indexToRemove, itemKind) => {
     let listUpdated = this.state[itemKind].filter((item, index) => {
-      return index != indexToRemove
+      return index !== indexToRemove;
     })
     this.setState({ [itemKind]: listUpdated })
   }

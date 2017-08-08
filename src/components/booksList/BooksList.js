@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-import {imageStyle, Header, Wrapper, ImageWrapper, Book, IconWrapper, Icon} from './style'
+import {imageStyle, Header, Wrapper, ImageWrapper, Book, Title, IconWrapper, Icon} from './style'
 
 class BooksList extends Component {
   render () {
@@ -16,7 +17,7 @@ class BooksList extends Component {
                 <IconWrapper>
                   <Icon onClick={this.props.removeItem.bind(null, index, 'books')} className="fa fa-times fa-2x" aria-hidden="true"></Icon>
                 </IconWrapper>
-                <h4>{book.title}</h4>
+                <Title>{book.title}</Title>
                 <ImageWrapper key={index}>
                   <img src={book.imageLink} style={imageStyle} key={index} />
                 </ImageWrapper>
@@ -35,3 +36,9 @@ class BooksList extends Component {
 }
 
 export default BooksList
+
+BooksList.propTypes = {
+  books: PropTypes.array,
+  editBook: PropTypes.func,
+  removeItem: PropTypes.func
+}

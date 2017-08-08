@@ -9,6 +9,7 @@ export const imageStyle = {
 
 export const Header = styled.div`
   text-align: center;
+  font-size: 0.6em;
 `
 
 export const Wrapper = styled.div`
@@ -16,15 +17,18 @@ export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  text-align: center;
 `
 
 export const ImageWrapper = styled.div`
 padding: 8%;
 box-sizing: border-box;
-height: 100%;
-min-height: 200px;  
+margin-bottom: 2%;
+max-height: 300px;
 width: 100%;
 overflow: hidden;
+display: flex;
+align-content: stretch;
 `
 export const Book = styled.div`
 width: 15%;
@@ -34,6 +38,10 @@ align-items: center;
 margin: 1.5%;
 border: 1px solid black;
 font-size: 0.8em;
+`
+
+export const Title = styled.h4`
+font-size: 1.4em;
 `
 
 export const IconWrapper = styled.div`

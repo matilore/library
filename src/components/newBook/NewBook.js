@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import { BooksList } from 'components'
 
@@ -26,15 +27,15 @@ class NewBook extends Component {
         </Header>
         <form onSubmit={this.newBook} className="form-group">
           <label htmlFor="">Title</label><br />
-          <input type="text" ref={(input) => this.title = input} id="bookField" className="form-control" />
+          <input type="text" ref={(input) => { this.title = input }} id="bookField" className="form-control" />
           <label htmlFor="">Author</label><br />
-          <input type="text" ref={(input) => this.author = input} id="bookField" className="form-control" />
+          <input type="text" ref={(input) => { this.author = input }} id="bookField" className="form-control" />
           <label htmlFor="">Year</label><br />
-          <input type="text" ref={(input) => this.year = input} id="bookField" className="form-control" />
+          <input type="text" ref={(input) => { this.year = input }} id="bookField" className="form-control" />
           <label htmlFor="">Cover</label><br />
-          <input type="text" ref={(input) => this.imageLink = input} id="bookField" className="form-control" />
+          <input type="text" ref={(input) => { this.imageLink = input }} id="bookField" className="form-control" />
           <label htmlFor="">Genre</label><br />
-          <select name='genre' ref={(input) => this.genre = input} id="bookField" className="form-control">
+          <select name='genre' ref={(input) => { this.genre = input }} id="bookField" className="form-control">
             {
               this.props.genres.map((genre) => {
                 return <option key={genre} value={genre}>{genre}</option>
@@ -50,3 +51,10 @@ class NewBook extends Component {
 }
 
 export default NewBook
+
+NewBook.propTypes = {
+  books: PropTypes.array,
+  genres: PropTypes.array,
+  saveNewItem: PropTypes.func,
+  selectComponent: PropTypes.func
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import { Icon } from './style'
 
@@ -44,7 +45,7 @@ class DynamicElement extends Component {
   render () {
     return (
       <div>
-        {this.state.edit == false ? this.renderButton() : this.renderInput()}
+        {this.state.edit === false ? this.renderButton() : this.renderInput()}
 
       </div>
 
@@ -53,3 +54,10 @@ class DynamicElement extends Component {
 }
 
 export default DynamicElement
+
+DynamicElement.propTypes = {
+  index: PropTypes.number,
+  updateItem: PropTypes.func,
+  removeItem: PropTypes.func,
+  genre: PropTypes.string
+}

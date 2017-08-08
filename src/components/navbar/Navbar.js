@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-import {BooksList, NewBook, GenreList } from 'components'
+import { BooksList, NewBook, GenreList } from 'components'
 
 import { Wrapper, Button, ButtonsWrapper } from './style'
 
@@ -20,3 +21,7 @@ class Navbar extends Component {
 }
 
 export default Navbar
+
+Navbar.propTypes = {
+  selectComponent: PropTypes.func
+}
